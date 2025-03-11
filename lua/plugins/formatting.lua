@@ -63,7 +63,7 @@ return {
       bang = true,
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+    vim.keymap.set({ "n", "v" }, "<leader>fo", function()
       conform.format({
         lsp_fallback = true,
         timeout_ms = 500,
