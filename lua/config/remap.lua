@@ -54,8 +54,9 @@ imap("<S-CR>", "<ESC>o")
 imap("<C-S-CR>", "<ESC>O")
 nmap("<C-S-CR>", "O<ESC>")
 
--- vmap("K", ":m '<-2<CR>gv=gv")
--- vmap("J", ":m '>+1<CR>gv=gv")
+-- Move selected visual block up and down
+vmap("K", ":m '<-2<CR>gv=gv")
+vmap("J", ":m '>+1<CR>gv=gv")
 
 -- Sort and uniq visual block
 vmap("<Leader>so", ":sort u<CR>")
