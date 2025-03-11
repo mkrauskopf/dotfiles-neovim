@@ -37,10 +37,12 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "ruff", -- python
-        "eslint_d", -- js linter
+        "ruff",
+        "stylua",
+
+        -- JS, HTML, CSS, ...
+        "eslint_d",
+        "prettier",
       },
     })
   end,
