@@ -59,10 +59,10 @@ vmap("K", ":m '<-2<CR>gv=gv")
 vmap("J", ":m '>+1<CR>gv=gv")
 
 -- Sort and uniq visual block
-vmap("<Leader>so", ":sort u<CR>")
-vmap("<Leader>sO", ":sort iu<CR>")
-nmap("<Leader>so", "ggVG,so")
-nmap("<Leader>sO", "ggVG,so")
+vmap("<leader>so", ":sort u<CR>", { desc = "Sort unique" })
+vmap("<leader>sO", ":sort iu<CR>", { desc = "Sort unique, ignore case" })
+nmap("<leader>so", ":%sort u<CR>", { desc = "Sort unique" })
+nmap("<leader>sO", ":%sort iu<CR>", { desc = "Sort unique, ignore case" })
 
 -- Run Lua
 nmap("<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file" })
