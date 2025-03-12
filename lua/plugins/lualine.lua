@@ -1,9 +1,18 @@
 return {
-  'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
 
   config = function()
-    return require("lualine").setup({})
-  end
+    require("lualine").setup({
+      sections = {
+        lualine_c = {
+          {
+            "filename",
+            path = 1,
+          },
+        },
+      },
+    })
+  end,
 }
