@@ -19,7 +19,7 @@ return {
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Help" })
     vim.keymap.set("n", "<leader>gr", builtin.live_grep, { desc = "Live Grep" })
     vim.keymap.set("n", "<leader>gc", builtin.grep_string, { desc = "Grep string under the Cursor" })
-    vim.keymap.set("n", "<leader>ef", builtin.find_files, { desc = "Edit file" })
+    vim.keymap.set("n", "<leader>ef", builtin.find_files, { desc = "Edit file (telescope)" })
 
     vim.keymap.set("n", "<leader>eh", function()
       builtin.find_files({
