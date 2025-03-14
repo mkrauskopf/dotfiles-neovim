@@ -11,7 +11,6 @@ return {
         relativenumber = true,
       },
     })
-    local api = require("nvim-tree.api")
 
     vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeFindFile<CR>", { desc = "Toggle Explorer" })
   end,
