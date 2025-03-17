@@ -2,12 +2,12 @@ return {
   {
     "tpope/vim-fugitive",
 
-    config = function()
-      vim.keymap.set("n", "<leader>ga", ":Git blame<CR>", { desc = "Git blame" })
-      vim.keymap.set("n", "<leader>gd", ":Gdiffsplit<CR>", { desc = "Git diff" })
-      vim.keymap.set("n", "<leader>go", ":GBrowse<CR>", { desc = "Open (remote) file in browse" })
-      vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "Git status" })
-    end,
+    keys = {
+      { "<leader>ga", ":Git blame<CR>", desc = "Git blame" },
+      { "<leader>gd", ":Gdiffsplit<CR>", desc = "Git diff" },
+      { "<leader>go", ":GBrowse<CR>", desc = "Open (remote) file in browse" },
+      { "<leader>gs", ":Git<CR>", desc = "Git status" },
+    },
   },
   {
     "tpope/vim-rhubarb",
