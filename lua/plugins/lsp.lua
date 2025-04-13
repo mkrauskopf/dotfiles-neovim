@@ -18,24 +18,6 @@ return {
   config = function()
     require("lspconfig").lua_ls.setup({})
 
-    -- The below mapping is not yet in the stable release. Once it arrives
-    -- there, you can delete it.
-    vim.keymap.set("n", "grn", function()
-      vim.lsp.buf.rename()
-    end, { desc = "vim.lsp.buf.rename()" })
-
-    vim.keymap.set({ "n", "x" }, "gra", function()
-      vim.lsp.buf.code_action()
-    end, { desc = "vim.lsp.buf.code_action()" })
-
-    vim.keymap.set("n", "grr", function()
-      vim.lsp.buf.references()
-    end, { desc = "vim.lsp.buf.references()" })
-
-    vim.keymap.set("i", "<C-S>", function()
-      vim.lsp.buf.signature_help()
-    end, { desc = "vim.lsp.buf.signature_help()" })
-
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -54,5 +36,13 @@ return {
         end
       end,
     })
+  end,
+
+  keys = function()
+    return {
+      { "<leader>fu", vim.lsp.buf.references, { desc = "Show usages" } },
+      { "<leader>rn", vim.lsp.buf.rename, { desc = "Rename refactoring" } },
+      { "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" } },
+    }
   end,
 }
