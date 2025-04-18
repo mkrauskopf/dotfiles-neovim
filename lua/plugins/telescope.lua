@@ -29,6 +29,15 @@ return {
       { "<leader>er", builtin.oldfiles, { desc = "Edit recent file" } },
 
       {
+        "<leader>fh",
+        function()
+          require("martinovo.selection")
+          builtin.help_tags({ default_text = GetVisualSelection() })
+        end,
+        mode = { "v" },
+        desc = "Find Help (selection)",
+      },
+      {
         "<leader>eh",
         function()
           builtin.find_files({
