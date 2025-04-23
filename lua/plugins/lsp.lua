@@ -40,9 +40,9 @@ return {
 
   keys = function()
     return {
-      { "<leader>fu", vim.lsp.buf.references, { desc = "Show usages" } },
-      { "<leader>rn", vim.lsp.buf.rename, { desc = "Rename refactoring" } },
-      { "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" } },
+      { "<leader>fu", vim.lsp.buf.references, desc = "Show usages" },
+      { "<leader>rn", vim.lsp.buf.rename, desc = "Rename refactoring" },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Show code actions" },
     }
   end,
 }

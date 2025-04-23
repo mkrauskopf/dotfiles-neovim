@@ -20,13 +20,13 @@ return {
     local builtin = require("telescope.builtin")
 
     return {
-      { "<leader>fh", builtin.help_tags, { desc = "Find Help" } },
-      { "<leader>gr", builtin.live_grep, { desc = "Live Grep" } },
-      { "<leader>gc", builtin.grep_string, { desc = "Grep string under the Cursor" } },
-      { "<leader>ef", builtin.find_files, { desc = "Edit file (telescope)" } },
-      { "<leader>eb", builtin.buffers, { desc = "Edit buffer" } },
-      { "<leader>ec", builtin.commands, { desc = "Execute Vim command" } },
-      { "<leader>er", builtin.oldfiles, { desc = "Edit recent file" } },
+      { "<leader>fh", builtin.help_tags, desc = "Find Help" },
+      { "<leader>gr", builtin.live_grep, desc = "Live Grep" },
+      { "<leader>gc", builtin.grep_string, desc = "Grep string under the Cursor" },
+      { "<leader>ef", builtin.find_files, desc = "Edit file (telescope)" },
+      { "<leader>eb", builtin.buffers, desc = "Edit buffer" },
+      { "<leader>ec", builtin.commands, desc = "Execute Vim command" },
+      { "<leader>er", builtin.oldfiles, desc = "Edit recent file" },
 
       {
         "<leader>fh",
@@ -45,7 +45,7 @@ return {
             file_ignore_patterns = { "^.git/" },
           })
         end,
-        { desc = "Edit file (including hidden)" },
+        desc = "Edit file (including hidden)",
       },
 
       {
@@ -55,7 +55,7 @@ return {
             cwd = vim.fn.stdpath("config"),
           })
         end,
-        { desc = "Edit Neovim config file" },
+        desc = "Edit Neovim config file",
       },
 
       {
@@ -65,7 +65,7 @@ return {
             cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
           })
         end,
-        { desc = "Edit plugin Neovim file" },
+        desc = "Edit plugin Neovim file",
       },
 
       {
@@ -76,7 +76,7 @@ return {
             hidden = true,
           })
         end,
-        { desc = "Edit dotfile" },
+        desc = "Edit dotfile",
       },
     }
   end,
