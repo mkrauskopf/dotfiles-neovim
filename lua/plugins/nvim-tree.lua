@@ -12,7 +12,12 @@ return {
         relativenumber = true,
       },
     })
+  end,
 
-    vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeFindFile<CR>", { desc = "Toggle Explorer" })
+  keys = function()
+    return {
+      { "<leader>ee", "<cmd>NvimTreeFindFile<CR>", desc = "Show file in Explorer" },
+      { "<leader>et", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
+    }
   end,
 }
