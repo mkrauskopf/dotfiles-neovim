@@ -26,8 +26,15 @@ return {
       { "<leader>ef", builtin.find_files, desc = "Edit file (telescope)" },
       { "<leader>eb", builtin.buffers, desc = "Edit buffer" },
       { "<leader>ec", builtin.commands, desc = "Execute Vim command" },
-      { "<leader>er", builtin.oldfiles, desc = "Edit recent file" },
+      { "<leader>eR", builtin.oldfiles, desc = "Edit recent files" },
 
+      {
+        "<leader>er",
+        function()
+          builtin.oldfiles({ only_cwd = true })
+        end,
+        desc = "Edit recent files in the CWD",
+      },
       {
         "<leader>fh",
         function()
@@ -57,7 +64,6 @@ return {
         end,
         desc = "Edit Neovim config file",
       },
-
       {
         "<leader>ep",
         function()
@@ -67,7 +73,6 @@ return {
         end,
         desc = "Edit plugin Neovim file",
       },
-
       {
         "<leader>df",
         function()
