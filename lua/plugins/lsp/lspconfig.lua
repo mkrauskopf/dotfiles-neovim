@@ -6,7 +6,6 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -72,16 +71,16 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
+    mason_lspconfig.setup({
       -- default handler for installed servers
       function(server_name)
-        lspconfig[server_name].setup({
+        vim.lsp.config[server_name].setup({
           capabilities = capabilities,
         })
       end,
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config["lua_ls"].setup({
           capabilities = capabilities,
           settings = {
             Lua = {
