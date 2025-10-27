@@ -45,6 +45,15 @@ return {
         desc = "Find Help (selection)",
       },
       {
+        "<leader>gr",
+        function()
+          require("martinovo.selection")
+          builtin.live_grep({ default_text = GetVisualSelection() })
+        end,
+        mode = { "v" },
+        desc = "Live Grep (selection)",
+      },
+      {
         "<leader>eh",
         function()
           builtin.find_files({
