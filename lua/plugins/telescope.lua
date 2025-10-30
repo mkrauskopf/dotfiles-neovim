@@ -21,9 +21,9 @@ return {
 
     return {
       { "<leader>fh", builtin.help_tags, desc = "Find Help" },
-      { "<leader>gr", builtin.live_grep, desc = "Live Grep" },
+      { "<leader>gR", builtin.live_grep, desc = "Live Grep" },
       { "<leader>gc", builtin.grep_string, desc = "Grep string under the Cursor" },
-      { "<leader>ef", builtin.find_files, desc = "Edit file (telescope)" },
+      { "<leader>ef", builtin.find_files, desc = "Edit file" },
       { "<leader>eb", builtin.buffers, desc = "Edit buffer" },
       { "<leader>ec", builtin.commands, desc = "Execute Vim command" },
       { "<leader>eR", builtin.oldfiles, desc = "Edit recent files" },
@@ -63,7 +63,18 @@ return {
         end,
         desc = "Edit file (including hidden)",
       },
-
+      {
+        "<leader>gr",
+        function()
+          builtin.live_grep({
+            file_ignore_patterns = { "^.git/" },
+            additional_args = function(_)
+              return { "--hidden" }
+            end,
+          })
+        end,
+        desc = "Live Grep (including hidden)",
+      },
       {
         "<leader>en",
         function()
