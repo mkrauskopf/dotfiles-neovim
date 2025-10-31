@@ -1,3 +1,5 @@
+local martinovo = require("martinovo")
+
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.8",
@@ -39,8 +41,7 @@ return {
       {
         "<leader>fh",
         function()
-          require("martinovo.selection")
-          builtin.help_tags({ default_text = GetVisualSelection() })
+          builtin.help_tags({ default_text = martinovo.get_visual_selection() })
         end,
         mode = { "v" },
         desc = "Find Help (selection)",
@@ -48,8 +49,7 @@ return {
       {
         "<leader>gr",
         function()
-          require("martinovo.selection")
-          builtin.live_grep({ default_text = GetVisualSelection() })
+          builtin.live_grep({ default_text = martinovo.get_visual_selection() })
         end,
         mode = { "v" },
         desc = "Live Grep (selection)",

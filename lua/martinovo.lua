@@ -1,4 +1,6 @@
-function GetVisualSelection()
+local M = {}
+
+M.get_visual_selection = function()
   local mode = vim.fn.mode()
   if mode ~= "v" and mode ~= "V" then
     vim.print("Can be used only in visual mode.\n")
@@ -22,3 +24,5 @@ function GetVisualSelection()
   local text = string.sub(line, start_col, end_col)
   return text
 end
+
+return M
