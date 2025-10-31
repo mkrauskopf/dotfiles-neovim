@@ -27,6 +27,7 @@ return {
       { "<leader>eb", builtin.buffers, desc = "Edit buffer" },
       { "<leader>ec", builtin.commands, desc = "Execute Vim command" },
       { "<leader>eR", builtin.oldfiles, desc = "Edit recent files" },
+      { "<leader>gs", builtin.git_status, desc = "Git status" },
 
       {
         "<leader>er",
