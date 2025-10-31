@@ -39,11 +39,6 @@ vmap("<C-BS>", '"+y')
 nmap("<C-S-BS>", ":0,$yank +<CR>")
 
 -- window and buffer management
-nmap("<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-nmap("<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-nmap("<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-nmap("<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
-
 nmap("<leader>bp", ":bprevious<CR>", { desc = "Buffer: Previous" })
 nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
 
