@@ -25,4 +25,10 @@ M.get_visual_selection = function()
   return text
 end
 
+M.google_visual_selection = function()
+  local text = vim.uri_encode(M.get_visual_selection())
+  local google_url = "https://www.google.com/search?q=" .. text
+  vim.fn.system({ "open", google_url })
+end
+
 return M

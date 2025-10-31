@@ -62,3 +62,6 @@ nmap("<leader>sO", ":%sort iu<CR>", { desc = "Sort unique, ignore case" })
 nmap("<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file" })
 nmap("<leader>x", ":.lua<CR>", { desc = "Source current line" })
 vmap("<leader>x", ":lua<CR>", { desc = "Source visual block" })
+
+-- Google it
+vmap("<leader>gO", require("martinovo").google_visual_selection, { desc = "Search visual selection on Google" })
