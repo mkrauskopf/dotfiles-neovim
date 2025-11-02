@@ -24,6 +24,7 @@ o.signcolumn = "yes"
 o.cmdheight = 1
 o.scrolloff = 10
 o.completeopt = "menuone,noinsert,noselect"
+o.winborder = "rounded"
 
 -- Behaviour
 o.hidden = true
