@@ -1,5 +1,3 @@
-require('config.remap')
-
 local o = vim.opt
 
 -- Tab / Indentation
@@ -21,7 +19,7 @@ o.wrapscan = false
 o.number = true
 o.relativenumber = true
 o.termguicolors = true
-o.colorcolumn = '120'
+o.colorcolumn = "120"
 o.signcolumn = "yes"
 o.cmdheight = 1
 o.scrolloff = 10
