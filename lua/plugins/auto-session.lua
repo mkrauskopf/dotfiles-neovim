@@ -8,9 +8,7 @@ return {
     { "<leader>ws", "<cmd>AutoSession save<CR>",    desc = "Save session" },
   },
 
-  config = function()
-    require("auto-session").setup({
-      auto_restore = true,
-    })
-  end,
+  opts = {
+    auto_restore = true,
+  },
 }
