@@ -49,7 +49,13 @@ return {
       {
         "<leader>gr",
         function()
-          builtin.live_grep({ default_text = martinovo.get_visual_selection() })
+          builtin.live_grep({
+            default_text = martinovo.get_visual_selection(),
+            file_ignore_patterns = { "^.git/" },
+            additional_args = function(_)
+              return { "--hidden" }
+            end,
+          })
         end,
         mode = { "v" },
         desc = "Live Grep (selection)",
