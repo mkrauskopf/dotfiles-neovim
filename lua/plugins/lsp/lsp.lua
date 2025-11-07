@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/lazydev.nvim", opts = {} },
+    { "folke/lazydev.nvim",                  opts = {} },
   },
   config = function()
     -- import cmp-nvim-lsp plugin
@@ -19,8 +19,8 @@ return {
 
   keys = function()
     return {
-      { "<leader>fu", vim.lsp.buf.references, desc = "Show usages" },
-      { "<leader>rn", vim.lsp.buf.rename, desc = "Rename refactoring" },
+      { "<leader>fu", vim.lsp.buf.references,  desc = "Show usages" },
+      { "<leader>rn", vim.lsp.buf.rename,      desc = "Rename refactoring" },
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Show code actions" },
     }
   end,
