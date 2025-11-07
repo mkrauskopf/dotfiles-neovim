@@ -33,6 +33,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
+        "harper-ls",
         "ruff",
         "stylua",
 
