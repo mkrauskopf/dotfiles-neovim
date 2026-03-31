@@ -49,8 +49,9 @@ imap("<C-S-CR>", "<ESC>O")
 nmap("<C-S-CR>", "O<ESC>")
 
 -- Move selected visual block up and down
-vmap("K", ":m '<-2<CR>gv=gv")
-vmap("J", ":m '>+1<CR>gv=gv")
+-- Disable for now: I'm using standard Vim `J` functionality a lot.
+-- vmap("K", ":m '<-2<CR>gv=gv")
+-- vmap("J", ":m '>+1<CR>gv=gv")
 
 -- Sort and uniq visual block
 vmap("<leader>so", ":sort u<CR>", { desc = "Sort unique" })
