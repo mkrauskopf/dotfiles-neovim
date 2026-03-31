@@ -6,51 +6,37 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
-
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = {
-        enable = true,
-      },
-      -- ensure these language parsers are installed
-      ensure_installed = {
-        "bash",
-        "c",
-        "css",
-        "dockerfile",
-        "gitignore",
-        "html",
-        "java",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<C-S-space>",
-        },
-      },
-    })
+    -- Install parsers (ensure_installed is gone; use TSInstall commands or install manually)
+    local installed = require("nvim-treesitter").get_installed()
+    local wanted = {
+      "bash",
+      "c",
+      "css",
+      "dockerfile",
+      "gitignore",
+      "html",
+      "java",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "markdown_inline",
+      "python",
+      "query",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "yaml",
+    }
+    local to_install = {}
+    for _, lang in ipairs(wanted) do
+      if not vim.list_contains(installed, lang) then
+        table.insert(to_install, lang)
+      end
+    end
+    if #to_install > 0 then
+      require("nvim-treesitter").install(to_install)
+    end
   end,
 }
