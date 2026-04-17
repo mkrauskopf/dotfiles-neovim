@@ -26,9 +26,13 @@ return {
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
-        -- markdown = { "prettier" },
+        markdown = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
+      },
+
+      formatters = {
+        prettier = {},
       },
 
       format_on_save = function(bufnr)
@@ -39,6 +43,7 @@ return {
         return {
           lsp_fallback = true,
           timeout_ms = 500,
+          async = false,
         }
       end,
     })
