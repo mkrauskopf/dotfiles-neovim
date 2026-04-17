@@ -27,6 +27,7 @@ return {
       "typescript",
       "vim",
       "vimdoc",
+      "xml",
       "yaml",
     }
     local to_install = {}

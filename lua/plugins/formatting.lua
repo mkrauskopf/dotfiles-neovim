@@ -29,6 +29,7 @@ return {
         markdown = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
+        xml = { "prettier" },
       },
 
       formatters = {
