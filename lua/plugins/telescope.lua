@@ -34,7 +34,7 @@ return {
         function()
           builtin.find_files({
             hidden = true,
-            file_ignore_patterns = { "^.git/" },
+            file_ignore_patterns = { "^.git/", "^third-party/", "^node_modules/" },
           })
         end,
         desc = "Edit file",
@@ -59,7 +59,7 @@ return {
         function()
           builtin.live_grep({
             default_text = martinovo.get_visual_selection(),
-            file_ignore_patterns = { "^.git/" },
+            file_ignore_patterns = { "^.git/", "^third-party/", "^node_modules/" },
             additional_args = function(_)
               return { "--hidden" }
             end,
@@ -82,7 +82,7 @@ return {
         "<leader>gr",
         function()
           builtin.live_grep({
-            file_ignore_patterns = { "^.git/" },
+            file_ignore_patterns = { "^.git/", "^third-party/", "^node_modules/" },
             additional_args = function(_)
               return { "--hidden" }
             end,
