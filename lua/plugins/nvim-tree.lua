@@ -11,6 +11,9 @@ return {
         width = 40,
         relativenumber = true,
       },
+      filters = {
+        git_ignored = false,
+      },
     })
   end,
 
