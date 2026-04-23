@@ -21,13 +21,14 @@ return {
     local builtin = require("telescope.builtin")
 
     return {
-      { "<leader>fh", builtin.help_tags,   desc = "Find Help" },
-      { "<leader>gR", builtin.live_grep,   desc = "Live Grep" },
-      { "<leader>gc", builtin.grep_string, desc = "Grep string under the Cursor" },
-      { "<leader>eb", builtin.buffers,     desc = "Edit buffer" },
-      { "<leader>ec", builtin.commands,    desc = "Execute Vim command" },
-      { "<leader>eR", builtin.oldfiles,    desc = "Edit recent files" },
-      { "<leader>gs", builtin.git_status,  desc = "Git status" },
+      { "<leader>fh",  builtin.help_tags,   desc = "Find Help" },
+      { "<leader>gR",  builtin.live_grep,   desc = "Live Grep" },
+      { "<leader>gc",  builtin.grep_string, desc = "Grep string under the Cursor" },
+      { "<leader>eb",  builtin.buffers,     desc = "Edit buffer" },
+      { "<leader>ec",  builtin.commands,    desc = "Execute Vim command" },
+      { "<leader>eR",  builtin.oldfiles,    desc = "Edit recent files" },
+      { "<leader>gs",  builtin.git_status,  desc = "Git status" },
+      { "<leader>skm", builtin.keymaps,     desc = "Show keymap" },
 
       {
         "<leader>ef",
