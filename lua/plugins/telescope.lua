@@ -74,7 +74,8 @@ return {
         function()
           builtin.find_files({
             hidden = true,
-            file_ignore_patterns = { "^.git/" },
+            no_ignore = true,
+            file_ignore_patterns = { "^.git/", "^third-party/", "^node_modules/" },
           })
         end,
         desc = "Edit file (including hidden)",
