@@ -22,7 +22,7 @@ o.termguicolors = true
 o.colorcolumn = "120"
 o.signcolumn = "yes"
 o.cmdheight = 1
-o.scrolloff = 10
+o.scrolloff = 999
 o.completeopt = "menuone,noinsert,noselect"
 o.winborder = "rounded"
 
