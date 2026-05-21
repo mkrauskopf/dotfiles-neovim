@@ -41,7 +41,8 @@ nmap("<C-S-BS>", ":0,$yank +<CR>")
 -- window and buffer management
 nmap("<leader>bp", ":bprevious<CR>", { desc = "Buffer: Previous" })
 nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
-nmap("<leader>cp", ":CopyPath<CR>", { desc = "Copy current buffer path to clipboard" })
+nmap("<leader>cpa", ":CopyAbsPath<CR>", { desc = "Copy the current buffer's absolute path to the OS clipboard" })
+nmap("<leader>cpr", ":CopyRelPath<CR>", { desc = "Copy the current buffer's relative path to the OS clipboard" })
 
 -- buffer editing
 nmap("<S-CR>", "o<ESC>")

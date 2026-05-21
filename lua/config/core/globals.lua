@@ -10,9 +10,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Copy the current buffer path to the OS clipboard.
-vim.api.nvim_create_user_command("CopyPath", function()
-  local path = vim.fn.expand("%:p")
+local function copy_path(modifier)
+  local path = vim.fn.expand("%" .. modifier)
   vim.fn.setreg("+", path)
   print("Copied: " .. path)
-end, { desc = "Copy the current buffer path to the OS clipboard." })
+end
+
+vim.api.nvim_create_user_command("CopyAbsPath", function()
+  copy_path(":p")
+end, { desc = "Copy the current buffer's absolute path to the OS clipboard" })
+
+vim.api.nvim_create_user_command("CopyRelPath", function()
+  copy_path(":.")
+end, { desc = "Copy the current buffer's relative path to the OS clipboard" })
