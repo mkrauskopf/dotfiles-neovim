@@ -1,3 +1,14 @@
+vim.keymap.set("n", "<leader>th", function()
+  local client = vim.lsp.get_clients({ name = "harper_ls", bufnr = 0 })[1]
+  if client then
+    client:stop()
+    vim.notify("Harper: off")
+  else
+    vim.lsp.start(vim.lsp.config["harper_ls"], { bufnr = 0 })
+    vim.notify("Harper: on")
+  end
+end, { desc = "Toggle Harper diagnostics" })
+
 vim.lsp.config("harper_ls", {
   filetypes = {
     "c",
