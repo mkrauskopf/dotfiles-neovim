@@ -68,3 +68,6 @@ vmap("<leader>x", ":lua<CR>", { desc = "Source visual block" })
 
 -- Google it
 vmap("<leader>gO", require("martinovo").google_visual_selection, { desc = "Search visual selection on Google" })
+
+-- Switch back from the terminal naturally.
+vim.keymap.set("t", "<C-w><C-p>", "<C-\\><C-n><C-w><C-p>")
