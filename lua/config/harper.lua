@@ -9,6 +9,8 @@ vim.keymap.set("n", "<leader>th", function()
   end
 end, { desc = "Toggle Harper diagnostics" })
 
+vim.lsp.enable("harper_ls", false)
+
 vim.lsp.config("harper_ls", {
   filetypes = {
     "c",
