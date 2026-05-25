@@ -44,6 +44,17 @@ nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
 nmap("<leader>cpa", ":CopyAbsPath<CR>", { desc = "Copy the current buffer's absolute path to the OS clipboard" })
 nmap("<leader>cpr", ":CopyRelPath<CR>", { desc = "Copy the current buffer's relative path to the OS clipboard" })
 
+-- Toggle quickfix window
+nmap("<leader>qf", function()
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      vim.cmd("cclose")
+      return
+    end
+  end
+  vim.cmd("copen")
+end, { desc = "Quickfix: Toggle" })
+
 -- buffer editing
 nmap("<S-CR>", "o<ESC>")
 imap("<S-CR>", "<ESC>o")
