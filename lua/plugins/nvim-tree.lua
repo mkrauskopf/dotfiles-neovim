@@ -6,6 +6,13 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
+      on_attach = function(bufnr)
+        local api = require("nvim-tree.api")
+        api.map.on_attach.default(bufnr)
+        local opts = { buffer = bufnr, nowait = true }
+        vim.keymap.set("n", "<C-Left>", "<cmd>NvimTreeResize -2<CR>", opts)
+        vim.keymap.set("n", "<C-Right>", "<cmd>NvimTreeResize +2<CR>", opts)
+      end,
       sync_root_with_cwd = true,
       view = {
         width = 40,
