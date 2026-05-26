@@ -39,6 +39,11 @@ vmap("<C-BS>", '"+y')
 nmap("<C-S-BS>", ":0,$yank +<CR>")
 
 -- window and buffer management
+nmap("<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Window: decrease width" })
+nmap("<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Window: increase width" })
+nmap("<C-Up>", "<cmd>resize +2<CR>", { desc = "Window: increase height" })
+nmap("<C-Down>", "<cmd>resize -2<CR>", { desc = "Window: decrease height" })
+
 nmap("<leader>bp", ":bprevious<CR>", { desc = "Buffer: Previous" })
 nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
 nmap("<leader>cpa", ":CopyAbsPath<CR>", { desc = "Copy the current buffer's absolute path to the OS clipboard" })
