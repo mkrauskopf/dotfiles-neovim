@@ -88,3 +88,7 @@ vmap("<leader>gO", require("martinovo").google_visual_selection, { desc = "Searc
 -- Switch back from the terminal naturally.
 vim.keymap.set("t", "<C-w><C-p>", "<C-\\><C-n><C-w><C-p>")
 vim.keymap.set("t", "<C-w><C-w>", "<C-\\><C-n><C-w><C-w>")
+vim.keymap.set("t", "<C-w><C-h>", "<C-\\><C-n><C-w><C-h>")
+vim.keymap.set("t", "<C-w><C-j>", "<C-\\><C-n><C-w><C-j>")
+vim.keymap.set("t", "<C-w><C-k>", "<C-\\><C-n><C-w><C-k>")
+vim.keymap.set("t", "<C-w><C-l>", "<C-\\><C-n><C-w><C-l>")
