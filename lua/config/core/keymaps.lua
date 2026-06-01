@@ -43,6 +43,11 @@ nmap("<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Window: decrease width
 nmap("<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Window: increase width" })
 nmap("<C-Up>", "<cmd>resize +2<CR>", { desc = "Window: increase height" })
 nmap("<C-Down>", "<cmd>resize -2<CR>", { desc = "Window: decrease height" })
+-- make it work also in the terminal window
+vim.keymap.set("t", "<C-Left>", "<C-\\><C-n><cmd>vertical resize -2<CR>i", { desc = "Window: decrease width" })
+vim.keymap.set("t", "<C-Right>", "<C-\\><C-n><cmd>vertical resize +2<CR>i", { desc = "Window: increase width" })
+vim.keymap.set("t", "<C-Up>", "<C-\\><C-n><cmd>resize +2<CR>i", { desc = "Window: increase height" })
+vim.keymap.set("t", "<C-Down>", "<C-\\><C-n><cmd>resize -2<CR>i", { desc = "Window: decrease height" })
 
 nmap("<leader>bp", ":bprevious<CR>", { desc = "Buffer: Previous" })
 nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
