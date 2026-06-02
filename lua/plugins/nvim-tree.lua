@@ -27,6 +27,13 @@ return {
   keys = function()
     return {
       { "<leader>ee", "<cmd>NvimTreeFindFile<CR>", desc = "Show file in Explorer" },
+      {
+        "<leader>eE",
+        function()
+          require("nvim-tree.api").tree.find_file({ focus = false, open = true })
+        end,
+        desc = "Show file in Explorer (keep focus)",
+      },
       { "<leader>et", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
     }
   end,
