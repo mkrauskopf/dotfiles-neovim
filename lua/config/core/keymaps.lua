@@ -54,6 +54,14 @@ nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
 nmap("<leader>cpa", ":CopyAbsPath<CR>", { desc = "Copy the current buffer's absolute path to the OS clipboard" })
 nmap("<leader>cpr", ":CopyRelPath<CR>", { desc = "Copy the current buffer's relative path to the OS clipboard" })
 
+nmap("<leader>dd", function()
+  if vim.wo.diff then
+    vim.cmd("windo diffoff")
+  else
+    vim.cmd("windo diffthis")
+  end
+end, { desc = "Diff: toggle for windows in tab" })
+
 -- Toggle quickfix window
 nmap("<leader>qf", function()
   for _, win in ipairs(vim.fn.getwininfo()) do
