@@ -36,6 +36,7 @@ return {
       { "<leader>eR", builtin.oldfiles, desc = "Edit recent files" },
       { "<leader>gs", builtin.git_status, desc = "Git status" },
       { "<leader>skm", builtin.keymaps, desc = "Show keymap" },
+      { "<leader>gb", builtin.git_branches, desc = "Show Git branches" },
 
       {
         "<leader>ef",
