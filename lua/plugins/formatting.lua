@@ -4,7 +4,7 @@ return {
 
   keys = {
     { "<leader>tf", ":FormatToggle!<cr>", desc = "Toggle autoformat for current buffer" },
-    { "<leader>tF", ":FormatToggle<cr>",  desc = "Toggle autoformat globally" },
+    { "<leader>tF", ":FormatToggle<cr>", desc = "Toggle autoformat globally" },
   },
 
   config = function()
