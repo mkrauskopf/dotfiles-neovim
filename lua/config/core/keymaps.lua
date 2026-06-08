@@ -98,6 +98,14 @@ vmap("<leader>x", ":lua<CR>", { desc = "Source visual block" })
 -- Google it
 vmap("<leader>gO", require("martinovo").google_visual_selection, { desc = "Search visual selection on Google" })
 
+nmap("<leader>te", function()
+  local dir = vim.fn.expand("%:p:h")
+  vim.cmd("botright vsplit")
+  vim.cmd("lcd " .. vim.fn.fnameescape(dir))
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
+end, { desc = "Terminal: open in current file's directory" })
+
 -- Switch back from the terminal naturally.
 vim.keymap.set("t", "<C-w><C-p>", "<C-\\><C-n><C-w><C-p>")
 vim.keymap.set("t", "<C-w><C-w>", "<C-\\><C-n><C-w><C-w>")
