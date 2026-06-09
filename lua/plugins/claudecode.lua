@@ -1,3 +1,13 @@
+-- Run a Claude command, then focus the Claude terminal once it settles.
+local function then_focus(cmd)
+  return function()
+    vim.cmd(cmd)
+    vim.schedule(function()
+      vim.cmd("ClaudeCodeFocus")
+    end)
+  end
+end
+
 return {
   "coder/claudecode.nvim",
   dependencies = { "folke/snacks.nvim" },
@@ -9,8 +19,8 @@ return {
     { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
     { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
     { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-    { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-    { "<leader>as", "<cmd>ClaudeCodeSend<cr>", desc = "Send to Claude", mode = "v" },
+    { "<leader>ab", then_focus("ClaudeCodeAdd %"), desc = "Add current buffer" },
+    { "<leader>as", then_focus("ClaudeCodeSend"), desc = "Send to Claude", mode = "v" },
     {
       "<leader>as",
       "<cmd>ClaudeCodeTreeAdd<cr>",
