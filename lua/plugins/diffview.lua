@@ -12,7 +12,7 @@ return {
 
   keys = {
     { "<leader>gdd", ":DiffviewOpen<CR>", desc = "Git diff: focus current file" },
-    { "<leader>gdb", ":DiffviewOpen origin/main..HEAD<CR>", desc = "Git diff: current branch vs origin/main" },
+    { "<leader>gdb", ":DiffviewOpen origin/master..HEAD<CR>", desc = "Git diff: current branch vs origin/master" },
     { "<leader>gdc", ":DiffviewClose<CR>", desc = "Git diff: close" },
     { "<leader>gdl", ":DiffviewLast ", desc = "Git diff: last N commits" },
   },
