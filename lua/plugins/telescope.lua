@@ -73,13 +73,7 @@ return {
       {
         "<leader>grr",
         function()
-          builtin.live_grep({
-            default_text = martinovo.get_visual_selection(),
-            file_ignore_patterns = file_ignore_patterns,
-            additional_args = function(_)
-              return { "--hidden" }
-            end,
-          })
+          martinovo.live_grep({ default_text = martinovo.get_visual_selection() })
         end,
         mode = { "v" },
         desc = "Live Grep (selection)",
@@ -98,12 +92,7 @@ return {
       {
         "<leader>grr",
         function()
-          builtin.live_grep({
-            file_ignore_patterns = file_ignore_patterns,
-            additional_args = function(_)
-              return { "--hidden" }
-            end,
-          })
+          martinovo.live_grep()
         end,
         desc = "Live Grep (including hidden)",
       },

@@ -25,18 +25,24 @@ M.get_visual_selection = function()
   return text
 end
 
+M.live_grep = function(opts)
+  opts = vim.tbl_extend("keep", opts or {}, {
+    file_ignore_patterns = { "^.git/", "^third-party/", ".*node_modules/" },
+    additional_args = function(_)
+      return { "--hidden" }
+    end,
+  })
+  require("telescope.builtin").live_grep(opts)
+end
+
 M.live_grep_in_dir = function(dir)
   if not dir or dir == "" then
     vim.notify("live_grep_in_dir: no directory", vim.log.levels.WARN)
     return
   end
-  require("telescope.builtin").live_grep({
+  M.live_grep({
     cwd = dir,
     prompt_title = "Live Grep: " .. vim.fn.fnamemodify(dir, ":~"),
-    file_ignore_patterns = { "^.git/", "^third-party/", ".*node_modules/" },
-    additional_args = function(_)
-      return { "--hidden" }
-    end,
   })
 end
 
