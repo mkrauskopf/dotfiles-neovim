@@ -19,6 +19,7 @@ return {
     { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
     { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
     { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+    { "<leader>al", then_focus(".ClaudeCodeSend"), desc = "Add current line" },
     { "<leader>ab", then_focus("ClaudeCodeAdd %"), desc = "Add current buffer" },
     { "<leader>as", then_focus("ClaudeCodeSend"), desc = "Send to Claude", mode = "v" },
     {
