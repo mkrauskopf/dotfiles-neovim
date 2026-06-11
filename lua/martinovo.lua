@@ -25,6 +25,21 @@ M.get_visual_selection = function()
   return text
 end
 
+M.live_grep_in_dir = function(dir)
+  if not dir or dir == "" then
+    vim.notify("live_grep_in_dir: no directory", vim.log.levels.WARN)
+    return
+  end
+  require("telescope.builtin").live_grep({
+    cwd = dir,
+    prompt_title = "Live Grep: " .. vim.fn.fnamemodify(dir, ":~"),
+    file_ignore_patterns = { "^.git/", "^third-party/", ".*node_modules/" },
+    additional_args = function(_)
+      return { "--hidden" }
+    end,
+  })
+end
+
 M.google_visual_selection = function()
   local text = vim.uri_encode(M.get_visual_selection())
   local google_url = "https://www.google.com/search?q=" .. text

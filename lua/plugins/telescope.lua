@@ -29,8 +29,15 @@ return {
 
     return {
       { "<leader>fh", builtin.help_tags, desc = "Find Help" },
-      { "<leader>gR", builtin.live_grep, desc = "Live Grep" },
+      { "<leader>grR", builtin.live_grep, desc = "Live Grep" },
       { "<leader>gc", builtin.grep_string, desc = "Grep string under the Cursor" },
+      {
+        "<leader>grd",
+        function()
+          martinovo.live_grep_in_dir(vim.fn.expand("%:p:h"))
+        end,
+        desc = "Live Grep (current file's dir)",
+      },
       { "<leader>eb", builtin.buffers, desc = "Edit buffer" },
       { "<leader>ec", builtin.commands, desc = "Execute Vim command" },
       { "<leader>eR", builtin.oldfiles, desc = "Edit recent files" },
@@ -64,7 +71,7 @@ return {
         desc = "Find Help (selection)",
       },
       {
-        "<leader>gr",
+        "<leader>grr",
         function()
           builtin.live_grep({
             default_text = martinovo.get_visual_selection(),
@@ -89,7 +96,7 @@ return {
         desc = "Edit file (including hidden)",
       },
       {
-        "<leader>gr",
+        "<leader>grr",
         function()
           builtin.live_grep({
             file_ignore_patterns = file_ignore_patterns,
