@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {
   install = {
-    colorscheme = { "nightfox" },
+    colorscheme = { "carbonfox" },
   },
   checker = {
     enable = true,
