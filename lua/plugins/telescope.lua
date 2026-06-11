@@ -30,7 +30,7 @@ return {
     return {
       { "<leader>fh", builtin.help_tags, desc = "Find Help" },
       { "<leader>grR", builtin.live_grep, desc = "Live Grep" },
-      { "<leader>gc", builtin.grep_string, desc = "Grep string under the Cursor" },
+      { "<leader>grc", builtin.grep_string, desc = "Grep string under the Cursor" },
       {
         "<leader>grd",
         function()
