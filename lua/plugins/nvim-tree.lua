@@ -12,7 +12,8 @@ return {
         local opts = { buffer = bufnr, nowait = true }
         vim.keymap.set("n", "<C-Left>", "<cmd>NvimTreeResize -2<CR>", opts)
         vim.keymap.set("n", "<C-Right>", "<cmd>NvimTreeResize +2<CR>", opts)
-        vim.keymap.set("n", "gr", function()
+
+        local live_grep_in_node_dir = function()
           local node = api.tree.get_node_under_cursor()
           if not node then
             return
@@ -20,7 +21,19 @@ return {
           local abs_path = node.absolute_path
           local dir = (node.type == "directory") and abs_path or vim.fn.fnamemodify(abs_path, ":h")
           require("martinovo").live_grep_in_dir(dir)
-        end, vim.tbl_extend("force", opts, { desc = "Live Grep in directory" }))
+        end
+        vim.keymap.set(
+          "n",
+          "gr",
+          live_grep_in_node_dir,
+          { buffer = bufnr, nowait = true, desc = "Live Grep in directory" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>grd",
+          live_grep_in_node_dir,
+          { buffer = bufnr, nowait = true, desc = "Live Grep in directory" }
+        )
       end,
       sync_root_with_cwd = true,
       view = {
