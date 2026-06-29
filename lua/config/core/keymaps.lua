@@ -98,6 +98,13 @@ vmap("<leader>x", ":lua<CR>", { desc = "Source visual block" })
 -- Google it
 vmap("<leader>gO", require("martinovo").google_visual_selection, { desc = "Search visual selection on Google" })
 
+nmap("gx", function()
+  local url = vim.fn.expand("<cfile>")
+  if url ~= "" then
+    vim.fn.jobstart({ "open", url }, { detach = true })
+  end
+end, { desc = "Open URL under cursor in default browser" })
+
 nmap("<leader>tE", function()
   local dir = vim.fn.expand("%:p:h")
   vim.cmd("botright vsplit")
