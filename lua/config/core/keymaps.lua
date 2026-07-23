@@ -105,6 +105,13 @@ nmap("gx", function()
   end
 end, { desc = "Open URL under cursor in default browser" })
 
+nmap("<leader>gx", function()
+  local url = vim.fn.expand("<cfile>")
+  if url ~= "" then
+    vim.fn.jobstart({ "open", url }, { detach = true })
+  end
+end, { desc = "Open URL under cursor in default browser" })
+
 nmap("<leader>tE", function()
   local dir = vim.fn.expand("%:p:h")
   vim.cmd("botright vsplit")
