@@ -40,5 +40,14 @@ return {
     if #to_install > 0 then
       require("nvim-treesitter").install(to_install)
     end
+
+    -- nvim-treesitter no longer calls vim.treesitter.start() automatically.
+    -- Enable highlighting for every filetype we install a parser for.
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = wanted,
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
   end,
 }
