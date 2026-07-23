@@ -22,6 +22,7 @@ return {
     { "<leader>al", then_focus(".ClaudeCodeSend"), desc = "Add current line" },
     { "<leader>as", then_focus(".ClaudeCodeSend"), desc = "Add current line (alias)" },
     { "<leader>ab", then_focus("ClaudeCodeAdd %"), desc = "Add current buffer" },
+    { "<leader>al", then_focus("ClaudeCodeSend"), desc = "Send to Claude (alias)", mode = "v" },
     { "<leader>as", then_focus("ClaudeCodeSend"), desc = "Send to Claude", mode = "v" },
     {
       "<leader>as",
