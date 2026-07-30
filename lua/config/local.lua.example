@@ -1,0 +1,14 @@
+-- Machine-specific config, not tracked in git.
+-- Copy this file to local.lua and adjust to your setup.
+return {
+  obsidian_workspaces = {
+    {
+      name = "personal",
+      path = "~/vaults/personal",
+    },
+    {
+      name = "work",
+      path = "~/vaults/work",
+    },
+  },
+}
