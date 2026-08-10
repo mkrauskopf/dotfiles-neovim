@@ -10,8 +10,10 @@ return {
   },
   config = function(_, opts)
     require("obsidian").setup(opts)
-    vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian tags<CR>", { desc = "Obsidian: tags" })
+    vim.keymap.set("n", "<leader>ob", "<cmd>Obsidian backlinks<CR>", { desc = "Obsidian: backlinks" })
+    vim.keymap.set("n", "<leader>oo", "<cmd>Obsidian<CR>", { desc = "Obsidian Main Menu" })
     vim.keymap.set("n", "<leader>os", "<cmd>Obsidian search<CR>", { desc = "Obsidian: search" })
+    vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian tags<CR>", { desc = "Obsidian: tags" })
 
     -- markview's preview is off by default (see lua/plugins/markview.lua); turn it on for Obsidian notes.
     vim.api.nvim_create_autocmd("User", {
