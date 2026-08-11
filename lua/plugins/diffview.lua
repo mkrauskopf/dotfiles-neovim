@@ -3,6 +3,18 @@ local function diffview_open(rest)
   vim.cmd(vim.trim(("DiffviewOpen -C%s %s"):format(vim.fn.fnameescape(vim.fn.getcwd()), rest or "")))
 end
 
+-- Show the commit history of the current buffer's file.
+local function diffview_file_history()
+  vim.cmd(
+    vim.trim(
+      ("DiffviewFileHistory -C%s %s"):format(
+        vim.fn.fnameescape(vim.fn.getcwd()),
+        vim.fn.fnameescape(vim.fn.expand("%"))
+      )
+    )
+  )
+end
+
 return {
   "sindrets/diffview.nvim",
 
@@ -29,6 +41,13 @@ return {
         diffview_open("origin/master..HEAD")
       end,
       desc = "Git diff: current branch vs origin/master",
+    },
+    {
+      "<leader>gdh",
+      function()
+        diffview_file_history()
+      end,
+      desc = "Git diff: current file history",
     },
     { "<leader>gdc", ":DiffviewClose<CR>", desc = "Git diff: close" },
     { "<leader>gdl", ":DiffviewLast ", desc = "Git diff: last N commits" },
