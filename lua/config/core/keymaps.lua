@@ -53,6 +53,16 @@ nmap("<leader>bp", ":bprevious<CR>", { desc = "Buffer: Previous" })
 nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
 nmap("<leader>cpa", ":CopyAbsPath<CR>", { desc = "Copy the current buffer's absolute path to the OS clipboard" })
 nmap("<leader>cpr", ":CopyRelPath<CR>", { desc = "Copy the current buffer's relative path to the OS clipboard" })
+nmap(
+  "<leader>cpla",
+  ":CopyAbsPathLine<CR>",
+  { desc = "Copy the current buffer's absolute path with line number to the OS clipboard" }
+)
+nmap(
+  "<leader>cplr",
+  ":CopyRelPathLine<CR>",
+  { desc = "Copy the current buffer's relative path with line number to the OS clipboard" }
+)
 
 nmap("<leader>dd", function()
   if vim.wo.diff then
