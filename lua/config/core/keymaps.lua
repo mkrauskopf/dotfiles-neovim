@@ -136,6 +136,9 @@ nmap("<leader>te", function()
   vim.cmd("startinsert")
 end, { desc = "Terminal: open in working directory" })
 
+-- Tabs
+nmap("<leader>tc", ":tabclose<CR>", { desc = "Tab: close current" })
+
 -- Switch back from the terminal naturally.
 vim.keymap.set("t", "<C-w><C-p>", "<C-\\><C-n><C-w><C-p>")
 vim.keymap.set("t", "<C-w><C-w>", "<C-\\><C-n><C-w><C-w>")
