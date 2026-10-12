@@ -29,3 +29,4 @@ o.winborder = "rounded"
 -- Behaviour
 o.hidden = true
 o.errorbells = false
+o.splitright = true
