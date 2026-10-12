@@ -49,6 +49,8 @@ vim.keymap.set("t", "<C-Right>", "<C-\\><C-n><cmd>vertical resize +2<CR>i", { de
 vim.keymap.set("t", "<C-Up>", "<C-\\><C-n><cmd>resize +2<CR>i", { desc = "Window: increase height" })
 vim.keymap.set("t", "<C-Down>", "<C-\\><C-n><cmd>resize -2<CR>i", { desc = "Window: decrease height" })
 
+nmap("<C-w>f", "<cmd>vertical wincmd f<CR>", { desc = "Window: open file under cursor in vertical split" })
+
 nmap("<leader>bp", ":bprevious<CR>", { desc = "Buffer: Previous" })
 nmap("<leader>bn", ":bnext<CR>", { desc = "Buffer: Next" })
 nmap("<leader>cpa", ":CopyAbsPath<CR>", { desc = "Copy the current buffer's absolute path to the OS clipboard" })
