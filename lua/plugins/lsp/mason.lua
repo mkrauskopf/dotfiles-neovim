@@ -9,6 +9,7 @@ return {
         "eslint",
         "html",
         "lua_ls",
+        "marksman",
         "pyright",
         "ts_ls",
       },
