@@ -13,6 +13,8 @@ end
 imap("jj", "<Esc>")
 nmap("ZC", ":bdelete<CR>")
 nmap("<Tab>", "i<SPACE><ESC>")
+-- Keep <C-i> as jump-forward; needs a terminal that tells it apart from <Tab>. Ghostty, iTerm2, Kitty, ...
+nmap("<C-i>", "<C-i>")
 
 nmap(
   "<leader>cwd",
