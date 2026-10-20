@@ -126,6 +126,13 @@ nmap("<leader>gx", function()
   end
 end, { desc = "Open URL under cursor in default browser" })
 
+nmap("<leader>gX", function()
+  local file = vim.fn.expand("%:p")
+  if file ~= "" then
+    vim.fn.jobstart({ "open", "-a", "Google Chrome", file }, { detach = true })
+  end
+end, { desc = "Open current file in browser" })
+
 nmap("<leader>tE", function()
   local dir = vim.fn.expand("%:p:h")
   vim.cmd("botright vsplit")
