@@ -30,3 +30,6 @@ o.winborder = "rounded"
 o.hidden = true
 o.errorbells = false
 o.splitright = true
+
+-- Don't store fold settings in sessions; they'd override filetype fold config (e.g. markdown) on restore
+o.sessionoptions:remove("folds")
