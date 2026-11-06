@@ -9,3 +9,6 @@ vim.opt_local.shiftwidth = 2
 vim.opt_local.foldmethod = "expr"
 vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt_local.foldlevel = 99
+
+-- No hard-wrapping while typing. Textwidth is kept so `gq` can still reformat on demand.
+vim.opt_local.formatoptions:remove({ "t", "c" })
