@@ -147,6 +147,11 @@ nmap("<leader>te", function()
   vim.cmd("startinsert")
 end, { desc = "Terminal: open in working directory" })
 
+nmap("<leader>tw", function()
+  vim.wo.wrap = not vim.wo.wrap
+  vim.notify("wrap " .. (vim.wo.wrap and "on" or "off"))
+end, { desc = "Toggle line wrap" })
+
 -- Tabs
 nmap("<leader>tc", ":tabclose<CR>", { desc = "Tab: close current" })
 
