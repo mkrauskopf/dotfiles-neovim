@@ -9,12 +9,20 @@ return {
         vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
       end
 
-      -- Navigation
-      map("n", "]h", function()
-        gs.next_hunk({ target = "all" })
+      -- Navigation: in diff mode fall back to native `]c`/`[c` (next/prev change)
+      map("n", "]c", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ vim.v.count1 .. "]c", bang = true })
+        else
+          gs.nav_hunk("next", { target = "all" })
+        end
       end, "Next Hunk")
-      map("n", "[h", function()
-        gs.prev_hunk({ target = "all" })
+      map("n", "[c", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ vim.v.count1 .. "[c", bang = true })
+        else
+          gs.nav_hunk("prev", { target = "all" })
+        end
       end, "Prev Hunk")
 
       -- Actions
