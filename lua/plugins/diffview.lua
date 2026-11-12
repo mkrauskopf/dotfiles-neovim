@@ -53,6 +53,15 @@ return {
     { "<leader>gdl", ":DiffviewLast ", desc = "Git diff: last N commits" },
   },
 
+  opts = {
+    hooks = {
+      -- Soft-wrap long lines in diff windows.
+      diff_buf_win_enter = function(_, winid)
+        vim.wo[winid].wrap = true
+      end,
+    },
+  },
+
   init = function()
     vim.api.nvim_create_user_command("DiffviewLast", function(opts)
       local n = tonumber(opts.args) or 1
