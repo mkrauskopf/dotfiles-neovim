@@ -8,53 +8,19 @@ return {
     require("nvim-tree").setup({
       on_attach = function(bufnr)
         local api = require("nvim-tree.api")
+        local actions = require("martinovo.nvim_tree")
         api.map.on_attach.default(bufnr)
-        local opts = { buffer = bufnr, nowait = true }
-        vim.keymap.set("n", "<C-Left>", "<cmd>NvimTreeResize -2<CR>", opts)
-        vim.keymap.set("n", "<C-Right>", "<cmd>NvimTreeResize +2<CR>", opts)
 
-        -- Functionality to compare two files selected (`m`) in the nvim-tree.
-        local diff_marked = function()
-          local nodes = api.marks.list()
-
-          if #nodes ~= 2 then
-            vim.notify("Mark exactly two files with m", vim.log.levels.WARN)
-            return
-          end
-
-          if nodes[1].type == "directory" or nodes[2].type == "directory" then
-            vim.notify("Both marked nodes must be files", vim.log.levels.WARN)
-            return
-          end
-
-          api.tree.close()
-          vim.cmd("tabedit " .. vim.fn.fnameescape(nodes[1].absolute_path))
-          vim.cmd("vertical diffsplit " .. vim.fn.fnameescape(nodes[2].absolute_path))
+        local map = function(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, nowait = true, desc = desc })
         end
-        vim.keymap.set("n", "<leader>df", diff_marked, { buffer = bufnr, nowait = true, desc = "Diff marked files" })
-        --
 
-        local live_grep_in_node_dir = function()
-          local node = api.tree.get_node_under_cursor()
-          if not node then
-            return
-          end
-          local abs_path = node.absolute_path
-          local dir = (node.type == "directory") and abs_path or vim.fn.fnamemodify(abs_path, ":h")
-          require("martinovo").live_grep_in_dir(dir)
-        end
-        vim.keymap.set(
-          "n",
-          "gr",
-          live_grep_in_node_dir,
-          { buffer = bufnr, nowait = true, desc = "Live Grep in directory" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>grd",
-          live_grep_in_node_dir,
-          { buffer = bufnr, nowait = true, desc = "Live Grep in directory" }
-        )
+        map("n", "<C-Left>", "<cmd>NvimTreeResize -2<CR>", "Shrink Explorer")
+        map("n", "<C-Right>", "<cmd>NvimTreeResize +2<CR>", "Widen Explorer")
+        map("n", "<leader>df", actions.diff_marked, "Diff marked files")
+        map("x", "<leader>df", actions.diff_selected, "Diff selected files")
+        map("n", "gr", actions.live_grep_in_node_dir, "Live Grep in directory")
+        map("n", "<leader>grd", actions.live_grep_in_node_dir, "Live Grep in directory")
       end,
       sync_root_with_cwd = true,
       view = {
